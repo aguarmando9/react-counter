@@ -7,7 +7,9 @@ function App() {
   return (
     <CounterContext>
       <div className="container">
-        <h1 className="title">Counter</h1>
+        <div className="title-container">
+          <h1 className="title">Counter</h1>
+        </div>
         <ShowCounter />
         <ControlCounter />
       </div>
