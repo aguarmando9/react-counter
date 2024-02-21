@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import { useContext } from "react";
 import { createContext } from "react";
 
@@ -9,6 +9,11 @@ export const useCounterContext = () => {
 };
 
 export function CounterContext({ children }) {
+  const initialValue = () => {
+    const counter = +localStorage.getItem("counter");
+    return counter || 0;
+  };
+
   const [counter, dispatch] = useReducer((state, action) => {
     switch (action.type) {
       case "ADD":
@@ -18,7 +23,11 @@ export function CounterContext({ children }) {
       default:
         return state;
     }
-  }, 0);
+  }, initialValue());
+
+  useEffect(() => {
+    localStorage.setItem("counter", counter);
+  }, [counter]);
 
   return (
     <div>
