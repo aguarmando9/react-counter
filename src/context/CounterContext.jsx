@@ -20,6 +20,8 @@ export function CounterContext({ children }) {
         return (state += action.payload);
       case "SUBSTRACT":
         return (state -= action.payload);
+        case "RESTART":
+          return state = 0;
       default:
         return state;
     }

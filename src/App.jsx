@@ -2,6 +2,7 @@ import { CounterContext } from "./context/CounterContext";
 import ShowCounter from "./components/ShowCounter";
 import ControlCounter from "./components/ControlCounter";
 import "./styles/App.css";
+import RestartCounter from "./components/RestartCounter";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         </div>
         <ShowCounter />
         <ControlCounter />
+        <RestartCounter />
       </div>
     </CounterContext>
   );
